@@ -41,6 +41,7 @@ const reverseStr = (arg) => {
 console.log(reverseStr("hello"));
 
 // 1. Find the Maximum: Write a function that takes an array of numbers as input and returns the maximum value.
+
 const maximumNum = (arg) => {
   if (!Array.isArray(arg))
     throw new Error(
@@ -75,7 +76,7 @@ const isPalindrome = (arg) => {
       "this function does not accept any parameter except strings"
     );
   let reversedStr = arg.toLowerCase().split("").reverse().join("");
-  return reversedStr === arg;
+  return reversedStr === arg.toLowerCase();
 };
 
 console.log(isPalindrome("kayak"));
@@ -84,3 +85,51 @@ console.log(isPalindrome("kayak"));
 // const fibonacciSequence = () => {
 
 // }
+
+const firstDuplicate = (arg) => {
+  if (!Array.isArray(arg)) throw new Error("this function takes only an arra");
+
+  for (let i = 0; i < arg.length; i++) {
+    for (let j = i + 1; j < arg.length; j++) {
+      if (arg[j] === arg[i]) {
+        return arg[j];
+      }
+    }
+  }
+
+  return -1;
+};
+
+console.log(firstDuplicate([1, 2, 3, 4, 5, 6]));
+
+// alt way and better to solve it
+
+const firstDuplicateAlt = (arg) => {
+  const seen = new Set();
+
+  for (let i = 0; i < arg.length; i++) {
+    if (seen.has(arg[i])) {
+      return arg[i];
+    }
+    seen.add(arg[i]);
+  }
+
+  return -1;
+};
+
+console.log(firstDuplicateAlt([1, 2, 3, 4, 4, 5, 5]));
+
+//Count the Vowels: Write a function that takes a string as input and returns the number of vowels.
+const vowelCount = (arg) => {
+  let count = 0;
+
+  for (let i = 0; i < arg.length; i++) {
+    if ("aeiou".includes(arg[i])) {
+      count++;
+    }
+  }
+
+  return count;
+};
+
+console.log(vowelCount("typeshit"));
