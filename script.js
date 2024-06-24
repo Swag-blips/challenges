@@ -70,5 +70,17 @@ console.log(sortArray([1, 3, 7, 4, 8, 6, 9, 2, 5, 10]));
 //Check if Palindrome: Write a function that takes a string as input and returns true if it's a palindrome, false otherwise.
 
 const isPalindrome = (arg) => {
-
+  if (typeof arg !== "string")
+    throw new Error(
+      "this function does not accept any parameter except strings"
+    );
+  let reversedStr = arg.toLowerCase().split("").reverse().join("");
+  return reversedStr === arg;
 };
+
+console.log(isPalindrome("kayak"));
+
+// // function to create fiboacci sequence
+// const fibonacciSequence = () => {
+
+// }
