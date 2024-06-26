@@ -198,3 +198,21 @@ const sumOfArray = (arg) => {
 };
 
 console.log(sumOfArray([1, 2, 3, 4, 5, 6, 7, 2]));
+
+/* Challenge: User Data Processing
+Problem Description
+You are given an array of user objects. Each user object contains the following properties:
+
+id (a unique identifier)
+name (the user's name)
+age (the user's age)
+email (the user's email address)
+isActive (a boolean indicating if the user is currently active)
+Your task is to write functions to perform the following operations:
+
+Filter Active Users: Write a function that filters out all inactive users.
+Find Average Age: Write a function that calculates the average age of all users.
+Find User by ID: Write a function that finds a user by their unique ID.
+Sort Users by Name: Write a function that sorts users alphabetically by their names.
+Format User Data: Write a function that formats the user data into a more readable string for each user.
+ */
