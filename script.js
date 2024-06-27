@@ -250,3 +250,37 @@ const camelize = (str) => {
 };
 
 camelize("my-short-string");
+
+
+// //Write a function filterRange(arr, a, b) that gets an array arr, looks for elements with values higher or equal to a and lower or equal to b and return a result as an array.
+
+// The function should not modify the array. It should return the new array.
+
+
+const filterRange = (arr,a,b) => {
+  return arr.filter(curr => curr >=a && curr<=b)
+}
+
+console.log(filterRange([10, 20, 30, 40, 50],15,45))
+
+
+// // Write a function filterRangeInPlace(arr, a, b) that gets an array arr and removes from it all values except those that 
+// are between a and b. The test is: a ≤ arr[i] ≤ b.
+
+// // The function should only modify the array. It should not return anything.
+
+
+const filterRangeInPlace = (arr, a,b) => {
+
+let result = []
+  for(let i=0; i<arr.length; i++){
+   if(arr[i] >= a && arr[i] <=b){
+    result.push(arr[i])
+   }
+  }
+
+  return result
+}
+
+
+console.log(filterRangeInPlace([-1, 0, 1, 2, 3],0,2))
