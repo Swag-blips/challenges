@@ -216,3 +216,37 @@ Find User by ID: Write a function that finds a user by their unique ID.
 Sort Users by Name: Write a function that sorts users alphabetically by their names.
 Format User Data: Write a function that formats the user data into a more readable string for each user.
  */
+
+const factorsOf12 = (num) => {
+  let arr = [];
+
+  for (let i = 0; i <= num; i++) {
+    if (num % i === 0) {
+      arr.push(i);
+    }
+  }
+
+  return arr;
+};
+
+console.log(factorsOf12(10));
+
+// // Write the function camelize(str) that changes dash-separated words like “my-short-string” into camel-cased “myShortString”.
+
+// That is: removes all dashes, each word after dash becomes uppercased.
+
+const camelize = (str) => {
+  // remove dashes
+
+  const splitStr = str.trim().split("");
+  for (let i = 0; i < splitStr.length; i++) {
+    if (splitStr[i] === "-") {
+      splitStr[i + 1] = splitStr[i + 1].toUpperCase();
+
+      splitStr.splice(i, 1);
+    }
+  }
+  return splitStr.join("");
+};
+
+camelize("my-short-string");
