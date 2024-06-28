@@ -284,3 +284,32 @@ let result = []
 
 
 console.log(filterRangeInPlace([-1, 0, 1, 2, 3],0,2))
+
+
+// Write the function getAverageAge(users) that gets an array of objects with property age and returns the average age.
+
+// The formula for the average is (age1 + age2 + ... + ageN) / N.
+
+
+const getAverageAge = (users) => {
+
+
+ const length = Object.keys(users).length
+
+ if(length == 0){
+  return undefined 
+ }
+ let sum = 0;
+  users.forEach((user) => {
+    sum+=user.age
+  })
+
+  return sum/length
+}
+
+console.log(getAverageAge(
+  [
+    
+  ]))
+
+  //Write the function sortByAge(users) that gets an array of objects with the age property and sorts them by age.
