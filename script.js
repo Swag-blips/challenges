@@ -313,3 +313,18 @@ console.log(getAverageAge(
   ]))
 
   //Write the function sortByAge(users) that gets an array of objects with the age property and sorts them by age.
+
+
+  const sortByAge = (users) => {
+
+    return users.sort((a,b) => a.age - b.age)
+  }
+  
+
+  console.log(sortByAge([
+    { name: 'John', age: 30 },
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 35 },
+    { name: 'Eve', age: 20 },
+    { name: 'Charlie', age: 30 }
+  ]))
