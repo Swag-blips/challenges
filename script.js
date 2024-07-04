@@ -339,3 +339,62 @@ const fizzBuzz = () => {
 };
 
 fizzBuzz();
+
+// Challenge: Inventory Management System
+// Objective:
+// Create an inventory management system for a store. The system should allow you to add items, remove items, and search for items by name.
+
+// Requirements:
+// Add Item: Add a new item to the inventory.
+// Remove Item: Remove an item from the inventory by its name.
+// Search Item: Search for an item by its name and return its details.
+// Steps:
+// Define the Item Structure:
+// Each item in the inventory will have a name, quantity, and price.
+
+// Create the Inventory Array:
+// This will hold all the items.
+
+// Implement Add Item Function:
+// A function to add a new item to the inventory.
+
+// Implement Remove Item Function:
+// A function to remove an item by its name.
+
+// Implement Search Item Function:
+// A function to search for an item by its name and return its details.'
+
+let inventory = [];
+const addItem = (name, quantity, price) => {
+  if (typeof quantity === "string") throw new Error("Invalid quantity");
+  if (name === "") throw new Error("Invalid name");
+  if (price === "") throw new Error("Invalid price");
+  const item = {
+    name,
+    quantity,
+    price,
+  };
+
+  inventory.push(item);
+};
+
+addItem("apple", 50, "$50");
+addItem("banana", 100, "$150");
+addItem("bear", 110, "$170");
+
+const removeItem = (name) => {
+  if (typeof name !== "string") throw new Error("invalid name");
+  inventory = inventory.filter((item) => item.name !== name);
+};
+
+removeItem("apple");
+
+const searchItem = (name) => {
+  if (typeof name !== "string") throw new Error("invalid name");
+  
+  return inventory.find((item) => item.name === name);
+};
+
+console.log(searchItem("banana"));
+
+console.log(inventory);
