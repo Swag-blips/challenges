@@ -199,24 +199,6 @@ const sumOfArray = (arg) => {
 
 console.log(sumOfArray([1, 2, 3, 4, 5, 6, 7, 2]));
 
-/* Challenge: User Data Processing
-Problem Description
-You are given an array of user objects. Each user object contains the following properties:
-
-id (a unique identifier)
-name (the user's name)
-age (the user's age)
-email (the user's email address)
-isActive (a boolean indicating if the user is currently active)
-Your task is to write functions to perform the following operations:
-
-Filter Active Users: Write a function that filters out all inactive users.
-Find Average Age: Write a function that calculates the average age of all users.
-Find User by ID: Write a function that finds a user by their unique ID.
-Sort Users by Name: Write a function that sorts users alphabetically by their names.
-Format User Data: Write a function that formats the user data into a more readable string for each user.
- */
-
 const factorsOf12 = (num) => {
   let arr = [];
 
@@ -251,80 +233,109 @@ const camelize = (str) => {
 
 camelize("my-short-string");
 
-
 // //Write a function filterRange(arr, a, b) that gets an array arr, looks for elements with values higher or equal to a and lower or equal to b and return a result as an array.
 
 // The function should not modify the array. It should return the new array.
 
+const filterRange = (arr, a, b) => {
+  return arr.filter((curr) => curr >= a && curr <= b);
+};
 
-const filterRange = (arr,a,b) => {
-  return arr.filter(curr => curr >=a && curr<=b)
-}
+console.log(filterRange([10, 20, 30, 40, 50], 15, 45));
 
-console.log(filterRange([10, 20, 30, 40, 50],15,45))
-
-
-// // Write a function filterRangeInPlace(arr, a, b) that gets an array arr and removes from it all values except those that 
+// // Write a function filterRangeInPlace(arr, a, b) that gets an array arr and removes from it all values except those that
 // are between a and b. The test is: a ≤ arr[i] ≤ b.
 
 // // The function should only modify the array. It should not return anything.
 
-
-const filterRangeInPlace = (arr, a,b) => {
-
-let result = []
-  for(let i=0; i<arr.length; i++){
-   if(arr[i] >= a && arr[i] <=b){
-    result.push(arr[i])
-   }
+const filterRangeInPlace = (arr, a, b) => {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= a && arr[i] <= b) {
+      result.push(arr[i]);
+    }
   }
 
-  return result
-}
+  return result;
+};
 
-
-console.log(filterRangeInPlace([-1, 0, 1, 2, 3],0,2))
-
+console.log(filterRangeInPlace([-1, 0, 1, 2, 3], 0, 2));
 
 // Write the function getAverageAge(users) that gets an array of objects with property age and returns the average age.
-
 // The formula for the average is (age1 + age2 + ... + ageN) / N.
 
-
 const getAverageAge = (users) => {
+  const length = Object.keys(users).length;
 
-
- const length = Object.keys(users).length
-
- if(length == 0){
-  return undefined 
- }
- let sum = 0;
-  users.forEach((user) => {
-    sum+=user.age
-  })
-
-  return sum/length
-}
-
-console.log(getAverageAge(
-  [
-    
-  ]))
-
-  //Write the function sortByAge(users) that gets an array of objects with the age property and sorts them by age.
-
-
-  const sortByAge = (users) => {
-
-    return users.sort((a,b) => a.age - b.age)
+  if (length == 0) {
+    return undefined;
   }
-  
+  let sum = 0;
+  users.forEach((user) => {
+    sum += user.age;
+  });
 
-  console.log(sortByAge([
-    { name: 'John', age: 30 },
-    { name: 'Alice', age: 25 },
-    { name: 'Bob', age: 35 },
-    { name: 'Eve', age: 20 },
-    { name: 'Charlie', age: 30 }
-  ]))
+  return sum / length;
+};
+
+console.log(getAverageAge([]));
+
+//Write the function sortByAge(users) that gets an array of objects with the age property
+// and sorts them by age.
+
+const sortByAge = (users) => {
+  return users.sort((a, b) => a.age - b.age);
+};
+
+console.log(
+  sortByAge([
+    { name: "John", age: 30 },
+    { name: "Alice", age: 25 },
+    { name: "Bob", age: 35 },
+    { name: "Eve", age: 20 },
+    { name: "Charlie", age: 30 },
+  ])
+);
+
+// Create a function unique(arr) that should return an array with unique items of arr.
+const uniqueArr = (arr) => {
+  let newArr = [];
+
+  arr.forEach((item) => {
+    if (!newArr.includes(item)) {
+      newArr.push(item);
+    } else {
+      console.log(`Duplicate found ${item}`);
+    }
+  });
+
+  return newArr;
+};
+
+console.log(uniqueArr([1, 4, 5, , 5, 5, 6, 7, 7, 7, 7, 7]));
+
+// other challenges
+
+// Challenge: FizzBuzz
+// The FizzBuzz challenge is a classic programming problem used in coding interviews. Here's how it works:
+
+// Print numbers from 1 to 100.
+// For multiples of three, print "Fizz" instead of the number.
+// For multiples of five, print "Buzz" instead of the number.
+// For numbers which are multiples of both three and five, print "FizzBuzz".
+
+const fizzBuzz = () => {
+  for (let i = 1; i <= 100; i++) {
+    if (i % 5 === 0 && i % 3 === 0) {
+      console.log("fizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("fizz");
+    } else if (i % 5 === 0) {
+      console.log("buzz");
+    } else {
+      console.log(i);
+    }
+  }
+};
+
+fizzBuzz();
