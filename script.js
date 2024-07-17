@@ -324,21 +324,21 @@ console.log(uniqueArr([1, 4, 5, , 5, 5, 6, 7, 7, 7, 7, 7]));
 // For multiples of five, print "Buzz" instead of the number.
 // For numbers which are multiples of both three and five, print "FizzBuzz".
 
-const fizzBuzz = () => {
-  for (let i = 1; i <= 100; i++) {
-    if (i % 5 === 0 && i % 3 === 0) {
-      console.log("fizzBuzz");
-    } else if (i % 3 === 0) {
-      console.log("fizz");
-    } else if (i % 5 === 0) {
-      console.log("buzz");
-    } else {
-      console.log(i);
-    }
-  }
-};
+// const fizzBuzz = () => {
+//   for (let i = 1; i <= 100; i++) {
+//     if (i % 5 === 0 && i % 3 === 0) {
+//       console.log("fizzBuzz");
+//     } else if (i % 3 === 0) {
+//       console.log("fizz");
+//     } else if (i % 5 === 0) {
+//       console.log("buzz");
+//     } else {
+//       console.log(i);
+//     }
+//   }
+// };
 
-fizzBuzz();
+// fizzBuzz();
 
 // Challenge: Inventory Management System
 // Objective:
@@ -530,8 +530,81 @@ const users = [
 
 const capitalizeNames = () => {
   for (let i = 0; i < users.length; i++) {
-   users[i].fullName.split("")[0].toUpperCase()
+    users[i].fullName.split("")[0].toUpperCase();
   }
 };
 
 capitalizeNames();
+
+//OOP
+
+// Challenge: Create a Movie Rental System
+// You need to create a movie rental system with the following requirements:
+
+// Classes to Create:
+
+// Movie: Represents a movie with properties like title, director, and ID.
+// RentalStore: Represents a rental store that can hold multiple movies and perform operations like adding and removing movies.
+// Customer: Represents a customer with properties like name and customer ID. Customers should be able to rent and return movies.
+// StoreManager: Represents a store manager who can add and remove movies from the rental store. Inherits from Customer.
+
+class Movie {
+  constructor(title, director, id) {
+    this.title = title;
+    this.director = director;
+    this.id = id;
+  }
+}
+const movie1 = new Movie("Inception", "Christopher Nolan", 8347);
+const movie2 = new Movie("The Matrix", "Lana Wachowski, Lilly Wachowski", 1293);
+const movie3 = new Movie("The Godfather", "Francis Ford Coppola", 4785);
+const movie4 = new Movie("Pulp Fiction", "Quentin Tarantino", 2376);
+const movie5 = new Movie("The Dark Knight", "Christopher Nolan", 5642);
+
+class RentalStore {
+  constructor() {
+    this.movies = [];
+  }
+
+  addMovie(movie) {
+    return this.movies.push(movie);
+  }
+
+  removeMovie(id) {
+    this.movies = this.movies.filter((movie) => movie.id !== id);
+  }
+}
+
+const jimmyRentals = new RentalStore();
+jimmyRentals.addMovie(movie1);
+jimmyRentals.addMovie(movie2);
+jimmyRentals.addMovie(movie3);
+jimmyRentals.addMovie(movie4);
+
+console.log(jimmyRentals);
+
+jimmyRentals.removeMovie(8347);
+
+console.log(jimmyRentals);
+
+class Customer {
+  constructor(name, id) {
+    this.name = name;
+    this.id = id;
+    this.rentedMovies = [];
+  }
+}
+
+class StoreManager extends Customer {
+  constructor(name, customerId) {
+    super(name, customerId);
+  }
+
+  addMovieToStore(movie, store) {
+    store.addMovie(movie);
+  }
+
+  removeMovieFromStore(id, store) {
+    store.removeMovie(id);
+  }
+}
