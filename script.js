@@ -633,3 +633,13 @@ const sortDuplicate = (arr) => {
 };
 
 console.log(sortDuplicate([4, 2, 7, 2, 1, 3, 4, 5]));
+
+//or
+
+const sortDuplicateAlt = (arr) => {
+  let uniqueArr = arr.filter((item, index) => arr.indexOf(item) === index);
+
+  return uniqueArr.sort((a, b) => a - b);
+};
+
+console.log(sortDuplicateAlt([4, 2, 7, 2, 1, 3, 4, 5]));
