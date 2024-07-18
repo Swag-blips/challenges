@@ -608,3 +608,28 @@ class StoreManager extends Customer {
     store.removeMovie(id);
   }
 }
+
+// Challenge:
+
+// Write a program that takes a list of numbers as input and returns the list with all duplicates removed and the remaining numbers sorted in ascending order.
+
+// Example:
+
+// Input: [4, 2, 7, 2, 1, 3, 4, 5]
+// Output: [1, 2, 3, 4, 5, 7]
+
+// Constraints:
+
+// - Use a programming language of your choice
+// - Share your solution in the comments
+// - Explain your approach and thought process
+
+// This challenge requires some data manipulation and sorting skills. Show me your coding prowess!
+
+const sortDuplicate = (arr) => {
+  let uniqueArray = [...new Set(arr)];
+
+  return uniqueArray.sort((a, b) => a - b);
+};
+
+console.log(sortDuplicate([4, 2, 7, 2, 1, 3, 4, 5]));
