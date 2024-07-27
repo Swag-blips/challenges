@@ -643,3 +643,128 @@ const sortDuplicateAlt = (arr) => {
 };
 
 console.log(sortDuplicateAlt([4, 2, 7, 2, 1, 3, 4, 5]));
+
+let dup = [];
+[4, 2, 7, 2, 1, 3, 4, 5, 9, 7].forEach((a, b) => {
+  if (dup.includes(a)) {
+    return;
+  }
+  dup.push(a);
+});
+console.log(dup.sort());
+
+// Write a JavaScript function that takes a string as input and returns the string with all vowels removed, but with the following twist:
+
+// - If a vowel is followed by another vowel, it should be replaced with a special character, like '#'.
+// - If a consonant is followed by a vowel, it should be replaced with another special character, like '$'.
+
+const replaceVowels = (str) => {
+  if (typeof str !== "string")
+    throw new Error(
+      "this function does not accept any parameter except strings"
+    );
+
+  if (str.trim() === "") return;
+  let vowels = "aeiouAEIOU";
+  let convertedTestStr = str.split("");
+
+  for (let i = 0; i < convertedTestStr.length; i++) {
+    if (vowels.includes(convertedTestStr[i])) {
+      convertedTestStr[i] = "";
+      if (
+        i + 1 < convertedTestStr.length &&
+        vowels.includes(convertedTestStr[i + 1])
+      ) {
+        convertedTestStr[i + 1] = "#";
+      } else if (i + 1 < convertedTestStr.length) {
+        convertedTestStr[i + 1] = "$";
+      }
+    }
+  }
+
+  return convertedTestStr;
+};
+
+console.log(replaceVowels(""));
+
+for (let i = 0; i <= 100; i++) {
+  if (i % 5 === 0 && i % 3 === 0) {
+    console.log("fizzBuzz");
+  } else if (i % 3 === 0) {
+    console.log("fizz");
+  } else if (i % 5 === 0) {
+    console.log("buzz");
+  } else {
+    console.log(i);
+  }
+}
+
+// The "Five Houses" Problem
+
+// There are five houses in a row, each painted a different color: blue, green, red, white, and yellow. Each house is occupied by a person of a different nationality: American, British, Canadian, Indian, and Japanese. Each person has a different favorite drink: coffee, tea, milk, soda, and water. Using the following clues, write a program to determine the color of each house, the nationality of its occupant, and their favorite drink.
+
+// 1. The Canadian lives in the first house.
+// 2. The person who drinks milk lives next to the person who owns the yellow house.
+// 3. The person who owns the yellow house drinks soda.
+// 4. The person who drinks coffee lives in the house next to the British person.
+// 5. The American lives in the red house.
+// 6. The person who drinks tea lives in the house next to the person who owns the green house.
+// 7. The person who owns the green house drinks water.
+
+// Constraints:
+
+// - Write a program in Python (or your preferred language)
+// - Use a logical and efficient approach (no brute force)
+// - Output should be a 5x3 table with columns for color, nationality, and drink
+
+// Take your time, think carefully, and show me your coding skills!
+
+const fillHouses = () => {
+  const houses = Array(5)
+    .fill()
+    .map(() => ({ color: "", nationality: "", drink: "" }));
+  houses[0].color = "yellow";
+  houses[1].nationality = "british";
+  houses[2].color = "red";
+  houses[3].color = "green";
+  houses[4].nationality = "american";
+
+  houses[0].nationality = "canadian";
+
+  for (let i = 0; i < houses.length; i++) {
+    if (houses[i].color === "yellow") {
+      houses[i + 1].drink = "milk";
+    }
+  }
+
+  for (let i = 0; i < houses.length; i++) {
+    if (houses[i].color === "yellow") {
+      houses[i].drink = "soda";
+    }
+  }
+
+  for (let i = 0; i < houses.length; i++) {
+    if (houses[i].nationality === "british") {
+      houses[i + 1].drink = "coffee";
+    }
+  }
+  for (let i = 0; i < houses.length; i++) {
+    if (houses[i].color === "red") {
+      houses[i].nationality = "American";
+    }
+  }
+  for (let i = 0; i < houses.length; i++) {
+    if (houses[i].color === "green") {
+      houses[i + 1].nationality = "Tea";
+    }
+  }
+  for (let i = 0; i < houses.length; i++) {
+    if (houses[i].color === "green") {
+      houses[i].drink = "water";
+    }
+  }
+
+  console.table(houses);
+};
+
+fillHouses();
