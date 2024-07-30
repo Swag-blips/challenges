@@ -768,3 +768,46 @@ const fillHouses = () => {
 };
 
 fillHouses();
+
+// Challenge: "Guess My Number"
+
+// Objective: Write a Python program that:
+
+// 1. Generates a random number between 1 and 100.
+// 2. Asks the user to guess the number.
+// 3. Tells the user if their guess is higher or lower than the generated number.
+// 4. Keeps asking until the user guesses the correct number.
+
+// Constraints:
+
+// - Use only built-in Python functions and libraries.
+// - Write a single Python script.
+
+const guessMyNumber = () => {
+  let randomNum = Math.floor(Math.random() * 100);
+  let numOfTries = 0;
+  let guess;
+  while (guess !== randomNum) {
+    guess = Number(prompt(`Guess the number (tries left: ${5 - numOfTries})`));
+
+    if (isNaN(guess)) {
+      alert("Please input a number");
+      continue;
+    }
+    numOfTries++;
+    if (randomNum > guess) {
+      alert("Higher");
+    } else if (randomNum < guess) {
+      alert("Lower");
+    } else if (randomNum === guess) {
+      alert("You win");
+      break;
+    }
+
+    if (numOfTries === 5) {
+      alert("Youve lost the game, maximum number of tries exceeded");
+      break;
+    }
+  }
+};
+guessMyNumber();
