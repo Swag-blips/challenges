@@ -814,11 +814,14 @@ fillHouses();
 
 // Write a program that prints the Multiplication Table with 7 (That's 7 times table .)
 
-let multiplicationTable = () => {
-  for (let i = 1; i <= 15; i++) {
-    let result = i * 7;
-    console.log(result);
-  }
-};
+// let multiplicationTable = () => {
+//   for (let i = 1; i <= 15; i++) {
+//     let result = i * 7;
+//     console.log(result);
+//   }
+// };
 
-multiplicationTable();
+// multiplicationTable();
+
+//////////////////////
+
