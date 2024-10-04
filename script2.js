@@ -113,3 +113,32 @@ const sameFrequency = (int1, int2) => {
 };
 
 console.log(sameFrequency(1233, 456));
+
+const flatArray = (arr) => {
+  return arr.flat(2);
+};
+
+console.log(flatArray([1, 2, 3, [4, 5, [6], 7]]));
+
+const flatArrayAlt = (arr) => {
+  let changedArr = arr.join().split("");
+
+  let res = [];
+  let finalRes = [];
+  console.log(changedArr);
+
+  for (let i = 0; i < changedArr.length; i++) {
+    if (changedArr[i] === ",") {
+      changedArr.splice(i, 1);
+    }
+    res.push(changedArr[i]);
+  }
+
+  for (let i = 0; i < res.length; i++) {
+    finalRes.push(Number(res[i]));
+  }
+
+  console.log(finalRes);
+};
+
+console.log(flatArrayAlt([1, 2, 3, [4, 5, [6], 7]]));
